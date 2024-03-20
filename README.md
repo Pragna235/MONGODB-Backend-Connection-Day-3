@@ -23,4 +23,5 @@
 *     db.users.find()
 *     db.users.findOne({username:{$eq:'Pragna'}})
 *     db.users.find({age:{$lt:21}})
+*     db.users.find({$and: [{'address.city':{$eq:"Hyderabad"}},{age:{$lt:30}}]})
 
