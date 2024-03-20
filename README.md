@@ -4,6 +4,7 @@
 
 * Hierarchay --> Database -> Collection -> Document
 
+### Database Commands
 ## Inserting
 
 * Open the `Mongosh` terminal
@@ -31,4 +32,12 @@
 *     db.users.updateOne({userId:{$eq:100}},{$addToSet:{marks:100}})
 *     db.users.deleteOne({userId:100})
 *     db.users.findOneAndUpdate({userId:{$eq:200}},{$set:{username:"Sneha Latha",age:30}},{returnDocument:"after"})
+
+### Connecting Database to Backend
+
+* Open your backend folder in `VSCode`
+* Open the `Terminal` -> Split it for convenience : One for Server, and the other for Working
+*     npm i mongodb
+*     node --watch server.js
+* Check to see if the Database Connection is successful or not.
 
