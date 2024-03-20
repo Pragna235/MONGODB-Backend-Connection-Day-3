@@ -24,11 +24,20 @@ productApp.get('/products',async(req,res)=>{
 //route to get individual user data
 productApp.get('/products/:id',async(req,res)=>{
     //get id from url
-    const index = Number(req.params.id);
+    const id = Number(req.params.id);
+    //read all users from usersCollection
+    let productsList = await productsCollection.find().toArray();
     //find the user with the id
-    let prod = await productsCollection.findOne({productId:index});
+    let product = await productsCollection.findOne({productId:id});
     //send res
-    res.send(prod);
+    let index = productsList.findIndex(prod => prod.productId === id);
+    console.log("index = ",index);
+    if(index == -1){
+        res.send({message:"Product with id not found"});
+    }
+    else{
+        res.send(productsList[index]);
+    }
     
 })
 
