@@ -23,11 +23,21 @@ userApp.get('/users',async(req,res)=>{
 //route to get individual user data
 userApp.get('/users/:id',async (req,res)=>{
     //get id from url
-    const index = Number(req.params.id);
+    const id = Number(req.params.id);
+    //read all users from usersCollection
+    let usersList = await usersCollection.find().toArray();
     //find the user with the id
-    let user = await usersCollection.findOne({userId:index});
+    let user = await usersCollection.findOne({userId:id});
     //send res
-    res.send(user);
+    let index = usersList.findIndex(user => user.userId === id);
+    console.log("index = ",index);
+    if(index == -1){
+        res.send({message:"User with id not found"});
+    }
+    else{
+        res.send(usersList[index]);
+    }
+    
     
     
 })
