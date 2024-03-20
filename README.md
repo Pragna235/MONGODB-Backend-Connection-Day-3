@@ -22,5 +22,5 @@
 *     db.users.findOne()
 *     db.users.find()
 *     db.users.findOne({username:{$eq:'Pragna'}})
-
+*     db.users.find({age:{$lt:21}})
 
