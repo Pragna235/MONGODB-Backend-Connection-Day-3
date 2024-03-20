@@ -2,6 +2,7 @@
 
 ## Playbook
 
+* Hierarchay --> Database -> Collection -> Document
 * Open the `Mongosh` terminal
 *     mongosh
 *     show databases
@@ -9,3 +10,5 @@
 *     db.createCollection('users')
 *     db.createCollection('products')
 *     show dbs
+*     show collections
+*     db.users.insertOne({userId:100,username:'Pragna',age:20,marks:[90,70],address:{city:"Hyderabad"}})
